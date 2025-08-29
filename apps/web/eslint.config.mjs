@@ -1,27 +1,25 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+/**
+ * ESLint configuration for the web app
+ * Uses the shared Next.js configuration from @repo/tooling
+ */
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+// Import the Next.js configuration
+const nextConfigs = require('@repo/tooling/eslint/next');
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...nextConfigs,
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-      ".turbo/**",
-    ],
+    name: 'web/app-specific',
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      // Add any app-specific rule overrides here
+      // For example:
+      // 'no-console': 'warn',
+    },
   },
 ];
 
 export default eslintConfig;
-
