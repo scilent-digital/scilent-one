@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     ":dependencyDashboard",
     ":semanticCommits",
     ":semanticCommitTypeAll(chore)",
@@ -38,7 +38,7 @@
     {
       "description": "Group all workspace package updates",
       "matchManagers": ["npm"],
-      "matchPaths": ["apps/**", "packages/**"],
+      "matchFileNames": ["apps/**", "packages/**"],
       "groupName": "workspace packages",
       "prPriority": 1
     },
