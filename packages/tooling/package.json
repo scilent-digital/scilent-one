@@ -11,10 +11,6 @@
     "prettier",
     "README.md"
   ],
-  "scripts": {
-    "lint": "echo 'Tooling package - no linting needed'",
-    "type-check": "echo 'Tooling package - no type checking needed'"
-  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@typescript-eslint/parser": "^8.20.0",

@@ -5,10 +5,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "lint:check": "turbo lint:check",
     "format": "turbo format",
-    "format:check": "turbo format:check",
-    "typecheck": "turbo type-check"
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "@repo/tooling": "workspace:*",
