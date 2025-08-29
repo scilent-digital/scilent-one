@@ -15,8 +15,7 @@
   "dependencies": {
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2",
-    "@repo/styles": "workspace:*"
+    "next": "15.5.2"
   },
   "devDependencies": {
     "@repo/tooling": "workspace:*",
@@ -30,4 +29,3 @@
     "prettier": "^3.4.2"
   }
 }
-
