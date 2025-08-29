@@ -13,11 +13,12 @@ Welcome to the Scilent One template! This guide will help you get started after 
 ### Initial Setup
 
 1. **Clone or fork the repository**:
+
    ```bash
    # If you forked it:
    git clone https://github.com/your-username/your-project-name.git
    cd your-project-name
-   
+
    # Or if you're using it as a template:
    # Download and extract, then:
    git init
@@ -26,28 +27,32 @@ Welcome to the Scilent One template! This guide will help you get started after 
    ```
 
 2. **Update package information**:
+
    ```bash
    # Update the root package.json name
    # Replace "scilent-one" with your project name
    ```
 
 3. **Install dependencies**:
+
    ```bash
    pnpm install
    ```
 
 4. **Start development**:
+
    ```bash
    pnpm dev
    ```
 
 5. **Verify everything works**:
+
    ```bash
    # Run all quality checks
-   pnpm lint:check
-   pnpm format:check
+   pnpm lint
+   pnpm format
    pnpm typecheck
-   
+
    # Build the project
    pnpm build
    ```
@@ -74,6 +79,7 @@ Welcome to the Scilent One template! This guide will help you get started after 
 ### Adding New Apps or Packages
 
 Follow the comprehensive guide in [`packages/tooling/SETUP.md`](../packages/tooling/SETUP.md) for adding new:
+
 - Next.js applications
 - React applications
 - Node.js packages/libraries
@@ -93,7 +99,7 @@ This template enforces high code quality through:
 
 1. **Make changes** to your code
 2. **Run formatting**: `pnpm format`
-3. **Check linting**: `pnpm lint:check`
+3. **Run linting**: `pnpm lint`
 4. **Type check**: `pnpm typecheck`
 5. **Test build**: `pnpm build`
 6. **Commit changes**
@@ -232,6 +238,7 @@ jobs:
 ### Q: Can I remove or change the tooling package?
 
 A: Yes! The tooling package is designed to be modular. You can:
+
 - Modify configurations in `packages/tooling/`
 - Replace it entirely with your own configurations
 - Add additional tools like Stylelint, Commitlint, etc.
@@ -239,12 +246,14 @@ A: Yes! The tooling package is designed to be modular. You can:
 ### Q: How do I add a new linting rule?
 
 A: You can add rules at different levels:
+
 - **Project-wide**: Modify `packages/tooling/eslint/` files
 - **App-specific**: Extend the config in your app's `eslint.config.mjs`
 
 ### Q: Can I use a different package manager?
 
 A: The template is designed for pnpm, but you can adapt it:
+
 - Update `package.json` scripts
 - Replace `pnpm-workspace.yaml` with appropriate config
 - Update CI/CD configurations
@@ -252,6 +261,7 @@ A: The template is designed for pnpm, but you can adapt it:
 ### Q: How do I add Storybook/Jest/other tools?
 
 A: The template is designed to be extended:
+
 1. Install the tools in the appropriate package
 2. Add configurations following the same pattern as existing tools
 3. Update package.json scripts
