@@ -41,9 +41,9 @@ export default function Home() {
             </div>
             
             <div className='flex flex-wrap gap-4 justify-center'>
-              <button className='btn btn-primary'>
-                Primary Button
-              </button>
+              <a href='/styles' className='btn btn-primary'>
+                View Design System
+              </a>
               <button className='btn btn-secondary'>
                 Secondary Button
               </button>
