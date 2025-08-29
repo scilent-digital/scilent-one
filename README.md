@@ -1,6 +1,6 @@
 # Scilent One - Digital Project Template
 
-A modern, production-ready web application template built with the latest technologies and best practices.
+A modern, production-ready web application template built with the latest technologies and best practices. This template emphasizes code quality, developer experience, and maintainability through comprehensive tooling and configuration.
 
 ## 🚀 Tech Stack
 
@@ -10,35 +10,48 @@ A modern, production-ready web application template built with the latest techno
 - **[Tailwind CSS 4.1.12](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[Turborepo 2.3.1](https://turbo.build/repo)** - Monorepo management
 - **[pnpm 10.15.0](https://pnpm.io/)** - Fast, disk space efficient package manager
-- **[ESLint](https://eslint.org/)** - Code linting
-- **[Prettier](https://prettier.io/)** - Code formatting
+- **[@repo/tooling](./packages/tooling)** - Unified ESLint, TypeScript, and Prettier configurations
 
 ## 📁 Project Structure
 
 ```
 scilent-one/
 ├── apps/
-│   └── web/                 # Next.js application
+│   └── web/                     # Next.js application
 │       ├── src/
-│       │   ├── app/         # App Router pages
+│       │   ├── app/             # App Router pages
 │       │   │   ├── layout.tsx
 │       │   │   ├── page.tsx
 │       │   │   └── globals.css
-│       │   └── components/  # Reusable components
-│       ├── public/          # Static assets
+│       │   └── components/      # Reusable components
+│       ├── public/              # Static assets
 │       ├── package.json
-│       ├── tsconfig.json
+│       ├── tsconfig.json        # Uses @repo/tooling/typescript/nextjs
+│       ├── eslint.config.mjs    # Uses @repo/tooling/eslint/next
+│       ├── .prettierrc.js       # Uses @repo/tooling/prettier
 │       ├── next.config.ts
 │       └── tailwind.config.ts
 ├── packages/
-│   └── eslint-config/       # Shared ESLint configuration
+│   └── tooling/                 # Shared development tooling
+│       ├── eslint/              # ESLint configurations
+│       │   ├── base.js          # Base TypeScript rules
+│       │   ├── react.js         # React-specific rules
+│       │   └── next.js          # Next.js optimizations
+│       ├── typescript/          # TypeScript configurations
+│       │   ├── base.json        # Base TypeScript config
+│       │   ├── react.json       # React projects
+│       │   └── nextjs.json      # Next.js projects
+│       ├── prettier/            # Prettier configuration
+│       │   └── index.js         # Formatting rules
 │       ├── package.json
-│       └── next.js
-├── package.json             # Root package.json
-├── pnpm-workspace.yaml      # pnpm workspace configuration
-├── turbo.json              # Turborepo configuration
-├── .prettierrc             # Prettier configuration
-├── .prettierignore         # Prettier ignore patterns
+│       ├── README.md            # Detailed tooling documentation
+│       └── SETUP.md             # Step-by-step setup guide
+├── package.json                 # Root package.json
+├── pnpm-workspace.yaml          # pnpm workspace configuration
+├── turbo.json                   # Turborepo configuration
+├── eslint.config.mjs            # Root ESLint config
+├── .prettierrc.js               # Root Prettier config
+├── .prettierignore              # Prettier ignore patterns
 └── README.md
 ```
 
@@ -51,190 +64,231 @@ scilent-one/
 
 ### Installation
 
-1. **Clone the repository**
-
+1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
-   cd scilent-one
+   git clone <repository-url> my-project
+   cd my-project
    ```
 
-2. **Install dependencies**
-
+2. **Install dependencies**:
    ```bash
    pnpm install
    ```
 
-3. **Start development server**
-
+3. **Start the development server**:
    ```bash
    pnpm dev
    ```
 
-   The application will be available at [http://localhost:3000](http://localhost:3000)
+4. **Open your browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 📜 Available Scripts
-
-### Root Level Commands
+### Available Scripts
 
 - `pnpm dev` - Start development servers for all apps
-- `pnpm build` - Build all apps for production
-- `pnpm lint` - Run ESLint across all workspaces
+- `pnpm build` - Build all apps and packages
+- `pnpm lint` - Run ESLint on all packages
+- `pnpm lint:check` - Check for linting issues without fixing
 - `pnpm format` - Format code with Prettier
-- `pnpm type-check` - Run TypeScript type checking
+- `pnpm format:check` - Check code formatting
+- `pnpm typecheck` - Run TypeScript type checking
 
-### App-Specific Commands
+## 🧰 Tooling Package
 
-Navigate to the app directory or use workspace commands:
+This template includes a comprehensive tooling package (`@repo/tooling`) that provides:
 
-```bash
-# Run from root
-pnpm --filter web dev
-pnpm --filter web build
-pnpm --filter web lint
+### Features
 
-# Or run from app directory
-cd apps/web
-pnpm dev
-pnpm build
-pnpm lint
-```
+- **ESLint Configurations**: Multiple configurations for different project types
+  - Base TypeScript configuration with import rules and strict type checking
+  - React configuration with hooks and accessibility rules
+  - Next.js configuration with performance and Core Web Vitals optimizations
 
-## 🔧 Configuration
+- **TypeScript Configurations**: Reusable tsconfig.json files
+  - Strict type checking with modern JavaScript support
+  - Project-specific optimizations for React and Next.js
+  - Path mapping and incremental compilation support
 
-### Package Manager
+- **Prettier Configuration**: Consistent code formatting
+  - Modern JavaScript defaults (single quotes, trailing commas)
+  - File-specific rules for JSON, Markdown, and YAML
+  - Comprehensive ignore patterns for build outputs and dependencies
 
-This project uses **pnpm** for package management:
+### Quick Setup for New Projects
 
-- Configured with `packageManager` field in package.json
-- Workspaces defined in `pnpm-workspace.yaml`
-- Faster installs and smaller disk usage compared to npm/yarn
+When adding a new package or app to the monorepo:
 
-### Monorepo Setup
+1. **Install the tooling package**:
+   ```bash
+   pnpm add -D @repo/tooling eslint prettier typescript
+   ```
 
-**Turborepo** manages the monorepo:
+2. **For Next.js apps**, create `eslint.config.mjs`:
+   ```javascript
+   import nextConfig from '@repo/tooling/eslint/next';
+   export default nextConfig;
+   ```
 
-- `turbo.json` defines build pipeline and caching
-- Optimized task running with dependency tracking
-- Built-in caching for faster builds
+3. **Create `tsconfig.json`**:
+   ```json
+   {
+     "extends": "@repo/tooling/typescript/nextjs"
+   }
+   ```
+
+4. **Create `.prettierrc.js`**:
+   ```javascript
+   module.exports = require('@repo/tooling/prettier');
+   ```
+
+For detailed setup instructions, see [`packages/tooling/SETUP.md`](./packages/tooling/SETUP.md).
+
+## 🎯 Development Workflow
 
 ### Code Quality
 
-**ESLint + Prettier** for consistent code:
+This template enforces high code quality through:
 
-- Shared ESLint config in `packages/eslint-config`
-- Next.js recommended rules with TypeScript support
-- Prettier for consistent formatting
-- Pre-configured for React and Next.js best practices
+- **Static Analysis**: ESLint catches potential bugs and enforces best practices
+- **Type Safety**: TypeScript provides compile-time error checking
+- **Code Formatting**: Prettier ensures consistent code style
+- **Import Organization**: Automatic import sorting and unused import removal
 
-### Styling
+### Editor Setup
 
-**Tailwind CSS v4** for styling:
+For the best development experience, install these VS Code extensions:
 
-- Latest version with improved performance
-- PostCSS integration
-- Dark mode support configured
-- Custom design system ready
+- **ESLint** (`ms-vscode.vscode-eslint`)
+- **Prettier** (`esbenp.prettier-vscode`)
+- **TypeScript Importer** (`pmneo.tsimporter`)
+- **Tailwind CSS IntelliSense** (`bradlc.vscode-tailwindcss`)
 
-## 🏗 Adding New Apps
+The repository includes `.vscode/settings.json` with optimized configuration.
 
-To add a new app to the monorepo:
+### Monorepo Benefits
 
-1. Create a new directory in `apps/`
-2. Initialize with your preferred framework
-3. Update the app's `package.json` name
-4. Add necessary scripts (dev, build, lint, type-check)
-5. Install dependencies with `pnpm install`
+- **Shared Dependencies**: Common packages are hoisted to the root
+- **Consistent Tooling**: Same ESLint, TypeScript, and Prettier configs across all packages
+- **Fast Builds**: Turborepo caches and parallelizes builds
+- **Type Safety**: Cross-package type checking and imports
+
+## 🏗 Architecture Decisions
+
+### Why This Structure?
+
+- **Scalability**: Easy to add new apps and packages
+- **Maintainability**: Shared tooling reduces configuration drift
+- **Developer Experience**: Consistent setup across all projects
+- **Performance**: Optimized build pipeline with caching
+
+### Package Organization
+
+- **`apps/`**: Deployable applications (web apps, mobile apps, etc.)
+- **`packages/`**: Shared libraries and tooling
+- **`tooling/`**: Development configurations and tools
+
+### Technology Choices
+
+- **Next.js**: Full-stack React framework with excellent DX
+- **Tailwind CSS**: Utility-first CSS for rapid UI development
+- **TypeScript**: Type safety and better developer experience
+- **Turborepo**: Efficient monorepo management with smart caching
+- **pnpm**: Fast package manager with efficient disk usage
 
 ## 📦 Adding New Packages
 
-To create shared packages:
+### Creating a New App
 
-1. Create a new directory in `packages/`
-2. Initialize with `package.json`
-3. Set the name to `@repo/package-name`
-4. Make it private: `"private": true`
-5. Export from `index.ts` or specified main file
+1. **Create the app directory**:
+   ```bash
+   mkdir apps/my-new-app
+   cd apps/my-new-app
+   ```
+
+2. **Initialize package.json**:
+   ```bash
+   pnpm init
+   ```
+
+3. **Install dependencies** including the tooling package:
+   ```bash
+   pnpm add -D @repo/tooling eslint prettier typescript
+   ```
+
+4. **Set up configurations** following the [setup guide](./packages/tooling/SETUP.md)
+
+5. **Add to Turborepo** by updating `turbo.json` if needed
+
+### Creating a Shared Package
+
+1. **Create the package directory**:
+   ```bash
+   mkdir packages/my-package
+   cd packages/my-package
+   ```
+
+2. **Follow the same setup process** as above
+
+3. **Export the package** in the main `package.json` if it should be publishable
 
 ## 🚀 Deployment
 
-### Vercel (Recommended for Next.js)
+### Vercel (Recommended)
 
-1. Connect your repository to Vercel
-2. Set the framework preset to "Next.js"
-3. Set the root directory to `apps/web`
-4. Deploy
+1. **Connect your repository** to Vercel
+2. **Configure build settings**:
+   - Build Command: `pnpm turbo build --filter=web`
+   - Output Directory: `apps/web/.next`
+   - Install Command: `pnpm install`
 
-### Docker
+### Self-Hosted
 
-```dockerfile
-# Example Dockerfile for Next.js app
-FROM node:18-alpine AS base
-RUN npm install -g pnpm
+1. **Build the application**:
+   ```bash
+   pnpm build
+   ```
 
-FROM base AS deps
-WORKDIR /app
-COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
-COPY apps/web/package.json ./apps/web/
-RUN pnpm install --frozen-lockfile
+2. **Start the production server**:
+   ```bash
+   cd apps/web
+   pnpm start
+   ```
 
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/apps/web/node_modules ./apps/web/node_modules
-COPY . .
-RUN pnpm build --filter=web
+## 🤝 Contributing
 
-FROM base AS runner
-WORKDIR /app
-ENV NODE_ENV production
-COPY --from=builder /app/apps/web/.next ./apps/web/.next
-COPY --from=builder /app/apps/web/public ./apps/web/public
-COPY --from=builder /app/apps/web/package.json ./apps/web/package.json
-EXPOSE 3000
-CMD ["pnpm", "start", "--filter=web"]
-```
+### Development Guidelines
 
-## 🔄 Development Workflow
+- Follow the established code style (enforced by ESLint/Prettier)
+- Write TypeScript for all new code
+- Add tests for new functionality
+- Update documentation for significant changes
 
-1. **Start development**: `pnpm dev`
-2. **Make changes** in your preferred editor
-3. **Run linting**: `pnpm lint` (auto-fixes many issues)
-4. **Format code**: `pnpm format`
-5. **Type check**: `pnpm type-check`
-6. **Build**: `pnpm build` (test production builds)
-7. **Commit** your changes
+### Pull Request Process
 
-## 🎯 Best Practices
+1. **Create a feature branch** from `main`
+2. **Make your changes** following the coding standards
+3. **Run quality checks**:
+   ```bash
+   pnpm lint:check
+   pnpm format:check
+   pnpm typecheck
+   pnpm build
+   ```
+4. **Submit a pull request** with a clear description
 
-- Use TypeScript for all new code
-- Follow the existing directory structure
-- Write self-documenting code with clear naming
-- Use Tailwind utilities over custom CSS when possible
-- Leverage Turborepo's caching by keeping tasks deterministic
-- Keep packages focused and small
-- Use proper semantic versioning for internal packages
-
-## 📚 Learning Resources
+## 📚 Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [React Documentation](https://react.dev/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Turborepo Documentation](https://turbo.build/repo/docs)
-- [pnpm Documentation](https://pnpm.io/motivation)
+- [Tooling Package Guide](./packages/tooling/README.md)
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+## 🙏 Acknowledgments
 
-**Happy coding! 🎉**
+This template is built on top of excellent open-source projects and follows industry best practices for modern web development. Special thanks to the teams behind Next.js, React, TypeScript, and all the other tools that make this template possible.
