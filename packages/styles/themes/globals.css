@@ -1,0 +1,230 @@
+/**
+ * Global CSS with theme variables
+ * This file sets up CSS variables for light and dark themes
+ * Import this in your app's global CSS file
+ */
+
+@import 'tailwindcss';
+
+/* Light theme (default) */
+:root {
+  /* Background colors */
+  --background-primary: #fafafa;
+  --background-secondary: #f5f5f5;
+  --background-tertiary: #e5e5e5;
+  --background-inverse: #171717;
+
+  /* Surface colors */
+  --surface-primary: #ffffff;
+  --surface-secondary: #fafafa;
+  --surface-tertiary: #f5f5f5;
+  --surface-elevated: #ffffff;
+
+  /* Text colors */
+  --text-primary: #171717;
+  --text-secondary: #404040;
+  --text-tertiary: #737373;
+  --text-disabled: #a3a3a3;
+  --text-inverse: #fafafa;
+  --text-link: #0284c7;
+  --text-link-hover: #0369a1;
+
+  /* Border colors */
+  --border-primary: #e5e5e5;
+  --border-secondary: #d4d4d4;
+  --border-tertiary: #a3a3a3;
+  --border-focus: #0ea5e9;
+  --border-error: #fca5a5;
+  --border-success: #86efac;
+  --border-warning: #fcd34d;
+
+  /* Brand colors */
+  --brand-primary: #0284c7;
+  --brand-primary-hover: #0369a1;
+  --brand-primary-active: #075985;
+  --brand-secondary: #e0f2fe;
+
+  /* State colors */
+  --state-success: #16a34a;
+  --state-success-bg: #f0fdf4;
+  --state-success-border: #bbf7d0;
+  
+  --state-warning: #d97706;
+  --state-warning-bg: #fffbeb;
+  --state-warning-border: #fde68a;
+  
+  --state-error: #dc2626;
+  --state-error-bg: #fef2f2;
+  --state-error-border: #fecaca;
+  
+  --state-info: #2563eb;
+  --state-info-bg: #eff6ff;
+  --state-info-border: #bfdbfe;
+
+  /* Interactive states */
+  --interactive-hover: #f5f5f5;
+  --interactive-active: #e5e5e5;
+  --interactive-focus: #0ea5e9;
+  --interactive-disabled: #d4d4d4;
+
+  /* Legacy variables for backward compatibility */
+  --background: var(--background-primary);
+  --foreground: var(--text-primary);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background colors */
+    --background-primary: #0a0a0a;
+    --background-secondary: #171717;
+    --background-tertiary: #262626;
+    --background-inverse: #fafafa;
+
+    /* Surface colors */
+    --surface-primary: #171717;
+    --surface-secondary: #262626;
+    --surface-tertiary: #404040;
+    --surface-elevated: #262626;
+
+    /* Text colors */
+    --text-primary: #fafafa;
+    --text-secondary: #e5e5e5;
+    --text-tertiary: #a3a3a3;
+    --text-disabled: #525252;
+    --text-inverse: #171717;
+    --text-link: #38bdf8;
+    --text-link-hover: #7dd3fc;
+
+    /* Border colors */
+    --border-primary: #262626;
+    --border-secondary: #404040;
+    --border-tertiary: #525252;
+    --border-focus: #38bdf8;
+    --border-error: #f87171;
+    --border-success: #4ade80;
+    --border-warning: #fbbf24;
+
+    /* Brand colors */
+    --brand-primary: #0ea5e9;
+    --brand-primary-hover: #38bdf8;
+    --brand-primary-active: #7dd3fc;
+    --brand-secondary: #082f49;
+
+    /* State colors */
+    --state-success: #4ade80;
+    --state-success-bg: #052e16;
+    --state-success-border: #166534;
+    
+    --state-warning: #fbbf24;
+    --state-warning-bg: #451a03;
+    --state-warning-border: #92400e;
+    
+    --state-error: #f87171;
+    --state-error-bg: #450a0a;
+    --state-error-border: #991b1b;
+    
+    --state-info: #60a5fa;
+    --state-info-bg: #172554;
+    --state-info-border: #1e40af;
+
+    /* Interactive states */
+    --interactive-hover: #262626;
+    --interactive-active: #404040;
+    --interactive-focus: #38bdf8;
+    --interactive-disabled: #404040;
+
+    /* Legacy variables for backward compatibility */
+    --background: var(--background-primary);
+    --foreground: var(--text-primary);
+  }
+}
+
+/* Manual dark theme class (for explicit theme switching) */
+.dark {
+  /* Background colors */
+  --background-primary: #0a0a0a;
+  --background-secondary: #171717;
+  --background-tertiary: #262626;
+  --background-inverse: #fafafa;
+
+  /* Surface colors */
+  --surface-primary: #171717;
+  --surface-secondary: #262626;
+  --surface-tertiary: #404040;
+  --surface-elevated: #262626;
+
+  /* Text colors */
+  --text-primary: #fafafa;
+  --text-secondary: #e5e5e5;
+  --text-tertiary: #a3a3a3;
+  --text-disabled: #525252;
+  --text-inverse: #171717;
+  --text-link: #38bdf8;
+  --text-link-hover: #7dd3fc;
+
+  /* Border colors */
+  --border-primary: #262626;
+  --border-secondary: #404040;
+  --border-tertiary: #525252;
+  --border-focus: #38bdf8;
+  --border-error: #f87171;
+  --border-success: #4ade80;
+  --border-warning: #fbbf24;
+
+  /* Brand colors */
+  --brand-primary: #0ea5e9;
+  --brand-primary-hover: #38bdf8;
+  --brand-primary-active: #7dd3fc;
+  --brand-secondary: #082f49;
+
+  /* State colors */
+  --state-success: #4ade80;
+  --state-success-bg: #052e16;
+  --state-success-border: #166534;
+  
+  --state-warning: #fbbf24;
+  --state-warning-bg: #451a03;
+  --state-warning-border: #92400e;
+  
+  --state-error: #f87171;
+  --state-error-bg: #450a0a;
+  --state-error-border: #991b1b;
+  
+  --state-info: #60a5fa;
+  --state-info-bg: #172554;
+  --state-info-border: #1e40af;
+
+  /* Interactive states */
+  --interactive-hover: #262626;
+  --interactive-active: #404040;
+  --interactive-focus: #38bdf8;
+  --interactive-disabled: #404040;
+
+  /* Legacy variables for backward compatibility */
+  --background: var(--background-primary);
+  --foreground: var(--text-primary);
+}
+
+/* Font variables (should be set by Next.js font loading) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Base body styles */
+body {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
