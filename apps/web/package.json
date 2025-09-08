@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@repo/tooling": "workspace:*",
-    "@types/node": "^20.19.13",
+    "@types/node": "^22.18.1",
     "@types/react": "^19.0.14",
     "@types/react-dom": "^19.0.6",
     "@tailwindcss/postcss": "^4.0.17",
