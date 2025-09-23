@@ -3,19 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "description": "Reusable UI components built with React and Tailwind CSS",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
-    "src",
+    "dist",
     "README.md"
   ],
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-select": "^2.1.2",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slider": "^1.2.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
-    "tailwind-merge": "^2.5.5",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-day-picker": "^9.0.8",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^2.5.5",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",
@@ -27,28 +37,28 @@
     "react-dom": "^19.1.1"
   },
   "exports": {
-    "./button": "./src/components/button.tsx",
-    "./input": "./src/components/input.tsx",
-    "./card": "./src/components/card.tsx",
-    "./badge": "./src/components/badge.tsx",
-    "./avatar": "./src/components/avatar.tsx",
-    "./separator": "./src/components/separator.tsx",
-    "./tabs": "./src/components/tabs.tsx",
-    "./dialog": "./src/components/dialog.tsx",
-    "./alert-dialog": "./src/components/alert-dialog.tsx",
-    "./switch": "./src/components/switch.tsx",
-    "./progress": "./src/components/progress.tsx",
-    "./slider": "./src/components/slider.tsx",
-    "./select": "./src/components/select.tsx",
-    "./textarea": "./src/components/textarea.tsx",
-    "./label": "./src/components/label.tsx",
-    "./calendar": "./src/components/calendar.tsx"
+    ".": "./dist/index.js",
+    "./button": "./dist/components/button.js",
+    "./input": "./dist/components/input.js",
+    "./card": "./dist/components/card.js",
+    "./badge": "./dist/components/badge.js",
+    "./avatar": "./dist/components/avatar.js",
+    "./separator": "./dist/components/separator.js",
+    "./tabs": "./dist/components/tabs.js",
+    "./dialog": "./dist/components/dialog.js",
+    "./alert-dialog": "./dist/components/alert-dialog.js",
+    "./switch": "./dist/components/switch.js",
+    "./progress": "./dist/components/progress.js",
+    "./slider": "./dist/components/slider.js",
+    "./select": "./dist/components/select.js",
+    "./textarea": "./dist/components/textarea.js",
+    "./label": "./dist/components/label.js",
+    "./calendar": "./dist/components/calendar.js"
   },
   "scripts": {
-    "build": "tsc --noEmit",
-    "dev": "echo 'No dev step required'",
+    "build": "tsc",
+    "dev": "tsc --watch",
     "lint": "echo 'No lint step configured'",
     "typecheck": "tsc --noEmit"
-  },
-  "type": "module"
+  }
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, Card, CardContent, CardHeader, CardTitle, Badge, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
+import { Button, Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/ui';
 import { tokens, lightTheme, darkTheme, applyTheme, getCurrentTheme } from '@repo/styles';
 
 export default function StylesPage() {
@@ -29,7 +29,7 @@ export default function StylesPage() {
           </p>
         </div>
 
-        <Tabs defaultValue="colors" className="space-y-6">
+        <Tabs defaultValue="colors">
           <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="colors">Colors</TabsTrigger>
             <TabsTrigger value="typography">Typography</TabsTrigger>
@@ -87,10 +87,10 @@ export default function StylesPage() {
                       <div key={semantic} className="text-center">
                         <div
                           className="w-16 h-16 rounded-md border border-border"
-                          style={{ backgroundColor: tokens.colors[semantic][500] }}
+                          style={{ backgroundColor: (tokens.colors as any)[semantic][500] }}
                         />
                         <div className="text-sm mt-2 capitalize font-medium">{semantic}</div>
-                        <div className="text-xs text-muted-foreground">{tokens.colors[semantic][500]}</div>
+                        <div className="text-xs text-muted-foreground">{(tokens.colors as any)[semantic][500]}</div>
                       </div>
                     ))}
                   </div>

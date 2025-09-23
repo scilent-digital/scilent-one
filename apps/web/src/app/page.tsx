@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Button, Card, CardContent, CardHeader, CardTitle } from '@repo/ui';
-import { tokens } from '@repo/styles';
 
 export default function Home() {
   return (

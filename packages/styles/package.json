@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "description": "Shared design system and styling configuration with Tailwind CSS",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
+    "dist",
     "tailwind",
     "themes",
     "tokens",
+    "utils",
     "README.md"
   ],
   "dependencies": {
@@ -16,7 +19,8 @@
     "@tailwindcss/postcss": "^4.1.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^2.5.5"
+    "tailwind-merge": "^2.5.5",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@types/node": "^20.19.17",
@@ -27,16 +31,16 @@
     "@tailwindcss/postcss": "^4.1.13"
   },
   "exports": {
-    "./tailwind": "./tailwind/index.js",
+    ".": "./dist/index.js",
+    "./tailwind": "./dist/tailwind/index.js",
     "./themes/*": "./themes/*",
-    "./tokens": "./tokens/index.js",
-    "./utils": "./utils/index.js"
+    "./tokens": "./dist/tokens/index.js",
+    "./utils": "./dist/utils/index.js"
   },
   "scripts": {
-    "build": "echo 'No build step required'",
-    "dev": "echo 'No dev step required'",
+    "build": "tsc",
+    "dev": "tsc --watch",
     "lint": "echo 'No lint step configured'",
-    "typecheck": "echo 'No typecheck step configured'"
-  },
-  "type": "module"
+    "typecheck": "tsc --noEmit"
+  }
 }

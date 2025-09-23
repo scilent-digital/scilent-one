@@ -61,7 +61,7 @@ export default function ComponentsPage() {
           </p>
         </div>
 
-        <Tabs defaultValue="buttons" className="space-y-6">
+        <Tabs defaultValue="buttons">
           <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="buttons">Buttons</TabsTrigger>
             <TabsTrigger value="forms">Forms</TabsTrigger>
@@ -268,7 +268,7 @@ export default function ComponentsPage() {
                 </CardHeader>
                 <CardContent>
                   <Dialog>
-                    <DialogTrigger asChild>
+                    <DialogTrigger>
                       <Button>Open Dialog</Button>
                     </DialogTrigger>
                     <DialogContent>
@@ -289,7 +289,7 @@ export default function ComponentsPage() {
                 </CardHeader>
                 <CardContent>
                   <AlertDialog>
-                    <AlertDialogTrigger asChild>
+                    <AlertDialogTrigger>
                       <Button variant="destructive">Delete Item</Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>

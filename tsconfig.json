@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/*": ["./packages/*/src"],
+      "@repo/styles/*": ["./packages/styles/*"],
+      "@repo/ui/*": ["./packages/ui/src/*"]
+    }
+  },
+  "exclude": ["node_modules", ".next", "dist", "build"]
+}
