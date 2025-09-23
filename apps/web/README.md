@@ -42,3 +42,46 @@ from the creators of Next.js.
 
 [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
 for more details.
+
+## UI Stack: Tailwind CSS v4 + shadcn/ui
+
+This app uses Tailwind v4 and shadcn/ui with class-based dark mode.
+
+- Tailwind config is colocated in `src/app/globals.css` (v4 inline theme).
+- Dark mode is toggled via the `dark` class using `next-themes`.
+- shadcn components live under `src/components/ui/*`.
+
+### Commands
+
+```bash
+pnpm dev        # run app
+pnpm typecheck  # TypeScript
+pnpm lint       # ESLint
+```
+
+### Structure
+
+- `src/app/globals.css`: Tailwind import, base CSS variables, tokens, and plugin registration.
+- `src/components/theme-provider.tsx`: Wrapper around `next-themes` with `attribute="class"`.
+- `src/components/theme-toggle.tsx`: Simple theme toggle button.
+- `src/components/ui/*`: shadcn/ui components (button, card, input, tabs, dialog, switch, badge, sonner toaster).
+
+### Demo routes
+
+- `/styles`: showcases theme tokens and utilities
+- `/components`: showcases shadcn components; includes Sonner Toaster demo
+
+### Adding more shadcn components
+
+Use the CLI from the app directory:
+
+```bash
+cd apps/web
+npx shadcn@latest add accordion avatar dropdown-menu select textarea tooltip
+```
+
+### Notes
+
+- If you change the base palette, update CSS variables in `globals.css` under `:root` and `.dark`.
+- Sonner is used for toasts instead of the deprecated `toast` component.
+- Tailwind plugins used: `tailwindcss-animate`.
