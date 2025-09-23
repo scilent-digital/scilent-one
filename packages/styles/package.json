@@ -1,0 +1,42 @@
+{
+  "name": "@repo/styles",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared design system and styling configuration with Tailwind CSS",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "tailwind",
+    "themes",
+    "tokens",
+    "README.md"
+  ],
+  "dependencies": {
+    "tailwindcss": "^4.1.13",
+    "@tailwindcss/postcss": "^4.1.13",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.17",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.1.13",
+    "@tailwindcss/postcss": "^4.1.13"
+  },
+  "exports": {
+    "./tailwind": "./tailwind/index.js",
+    "./themes/*": "./themes/*",
+    "./tokens": "./tokens/index.js",
+    "./utils": "./utils/index.js"
+  },
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "dev": "echo 'No dev step required'",
+    "lint": "echo 'No lint step configured'",
+    "typecheck": "echo 'No typecheck step configured'"
+  },
+  "type": "module"
+}

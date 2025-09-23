@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Import design system styles */
+@import '@repo/styles/tokens';
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -11,11 +14,13 @@
     --foreground: #ededed;
   }
 }
+
+/* Apply theme variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 body {

@@ -4,13 +4,15 @@ A modern, production-ready web application template built with the latest techno
 
 ## 🚀 Tech Stack
 
-- **[Next.js 15.5.2](https://nextjs.org/)** - React framework with App Router
-- **[React 19.1.0](https://react.dev/)** - UI library
-- **[TypeScript 5.7.2](https://www.typescriptlang.org/)** - Type safety
-- **[Tailwind CSS 4.1.12](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[Turborepo 2.3.1](https://turbo.build/repo)** - Monorepo management
-- **[pnpm 10.15.0](https://pnpm.io/)** - Fast, disk space efficient package manager
+- **[Next.js 15.5.3](https://nextjs.org/)** - React framework with App Router
+- **[React 19.1.1](https://react.dev/)** - UI library
+- **[TypeScript 5.9.2](https://www.typescriptlang.org/)** - Type safety
+- **[Tailwind CSS 4.1.13](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Turborepo 2.3.7](https://turbo.build/repo)** - Monorepo management
+- **[pnpm 10.15.1](https://pnpm.io/)** - Fast, disk space efficient package manager
 - **[@repo/tooling](./packages/tooling)** - Unified ESLint, TypeScript, and Prettier configurations
+- **[@repo/styles](./packages/styles)** - Shared design system with Tailwind CSS and themes
+- **[@repo/ui](./packages/ui)** - Reusable UI components built with React and Tailwind CSS
 
 ## 📁 Project Structure
 
@@ -22,6 +24,10 @@ scilent-one/
 │       │   ├── app/             # App Router pages
 │       │   │   ├── layout.tsx
 │       │   │   ├── page.tsx
+│       │   │   ├── styles/       # Styles demo page
+│       │   │   │   └── page.tsx
+│       │   │   ├── components/   # Components demo page
+│       │   │   │   └── page.tsx
 │       │   │   └── globals.css
 │       │   └── components/      # Reusable components
 │       ├── public/              # Static assets
@@ -30,22 +36,60 @@ scilent-one/
 │       ├── eslint.config.mjs    # Uses @repo/tooling/eslint/next
 │       ├── .prettierrc.js       # Uses @repo/tooling/prettier
 │       ├── next.config.ts
-│       └── tailwind.config.ts
+│       ├── tailwind.config.js   # Uses @repo/styles/tailwind
+│       └── postcss.config.mjs
 ├── packages/
-│   └── tooling/                 # Shared development tooling
-│       ├── eslint/              # ESLint configurations
-│       │   ├── base.js          # Base TypeScript rules
-│       │   ├── react.js         # React-specific rules
-│       │   └── next.js          # Next.js optimizations
-│       ├── typescript/          # TypeScript configurations
-│       │   ├── base.json        # Base TypeScript config
-│       │   ├── react.json       # React projects
-│       │   └── nextjs.json      # Next.js projects
-│       ├── prettier/            # Prettier configuration
-│       │   └── index.js         # Formatting rules
+│   ├── tooling/                 # Shared development tooling
+│   │   ├── eslint/              # ESLint configurations
+│   │   │   ├── base.js          # Base TypeScript rules
+│   │   │   ├── react.js         # React-specific rules
+│   │   │   └── next.js          # Next.js optimizations
+│   │   ├── typescript/          # TypeScript configurations
+│   │   │   ├── base.json        # Base TypeScript config
+│   │   │   ├── react.json       # React projects
+│   │   │   └── nextjs.json      # Next.js projects
+│   │   ├── prettier/            # Prettier configuration
+│   │   │   └── index.js         # Formatting rules
+│   │   ├── package.json
+│   │   ├── README.md            # Detailed tooling documentation
+│   │   └── SETUP.md             # Step-by-step setup guide
+│   ├── styles/                  # Shared design system
+│   │   ├── tailwind/            # Tailwind CSS configuration
+│   │   │   └── index.js         # Shared Tailwind config
+│   │   ├── tokens/              # Design tokens
+│   │   │   └── index.js         # Color, typography, spacing tokens
+│   │   ├── themes/              # Theme configurations
+│   │   │   ├── light.js         # Light theme
+│   │   │   ├── dark.js          # Dark theme
+│   │   │   └── index.js         # Theme utilities
+│   │   ├── utils/               # Utility functions
+│   │   │   └── index.js         # Styling utilities
+│   │   ├── package.json
+│   │   └── README.md            # Design system documentation
+│   └── ui/                      # UI component library
+│       ├── src/
+│       │   ├── components/       # UI components
+│       │   │   ├── button.tsx   # Button component
+│       │   │   ├── input.tsx    # Input component
+│       │   │   ├── card.tsx     # Card component
+│       │   │   ├── badge.tsx    # Badge component
+│       │   │   ├── avatar.tsx   # Avatar component
+│       │   │   ├── separator.tsx # Separator component
+│       │   │   ├── tabs.tsx     # Tabs component
+│       │   │   ├── dialog.tsx   # Dialog component
+│       │   │   ├── alert-dialog.tsx # Alert dialog component
+│       │   │   ├── switch.tsx   # Switch component
+│       │   │   ├── progress.tsx # Progress component
+│       │   │   ├── slider.tsx   # Slider component
+│       │   │   ├── select.tsx   # Select component
+│       │   │   ├── textarea.tsx # Textarea component
+│       │   │   ├── label.tsx    # Label component
+│       │   │   └── calendar.tsx # Calendar component
+│       │   ├── lib/             # Internal utilities
+│       │   │   └── utils.ts      # Component utilities
+│       │   └── index.ts         # Main exports
 │       ├── package.json
-│       ├── README.md            # Detailed tooling documentation
-│       └── SETUP.md             # Step-by-step setup guide
+│       └── README.md            # UI components documentation
 ├── package.json                 # Root package.json
 ├── pnpm-workspace.yaml          # pnpm workspace configuration
 ├── turbo.json                   # Turborepo configuration
@@ -142,6 +186,57 @@ When adding a new package or app to the monorepo:
    ```
 
 For detailed setup instructions, see [`packages/tooling/SETUP.md`](./packages/tooling/SETUP.md).
+
+## 🎨 Design System & UI Components
+
+This template includes a comprehensive design system and UI component library:
+
+### @repo/styles - Design System Package
+
+A shared design system with:
+- **Tailwind CSS Configuration**: Centralized styling configuration
+- **Design Tokens**: Consistent colors, typography, spacing, and shadows
+- **Theme Support**: Light and dark theme configurations
+- **Utility Functions**: Helper functions for styling operations
+
+### @repo/ui - UI Component Library
+
+A collection of reusable UI components:
+- **Form Components**: Buttons, inputs, selects, switches, sliders
+- **Layout Components**: Cards, separators, tabs
+- **Overlay Components**: Dialogs, alert dialogs, tooltips
+- **Data Display**: Badges, avatars, progress indicators
+- **Navigation**: Tabs, menus, navigation components
+
+### Demo Pages
+
+Explore the design system and components:
+- **[/styles](http://localhost:3000/styles)** - Interactive design system showcase
+- **[/components](http://localhost:3000/components)** - UI components demonstration
+
+### Usage Examples
+
+```tsx
+import { Button, Card, CardContent, CardHeader, CardTitle } from '@repo/ui';
+import { tokens, lightTheme } from '@repo/styles';
+
+export function MyComponent() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Welcome</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button variant="primary">Click me</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+For detailed documentation, see:
+- [Design System Guide](./packages/styles/README.md)
+- [UI Components Guide](./packages/ui/README.md)
 
 ## 🎯 Development Workflow
 
@@ -291,8 +386,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-<<<<<<< Current (Your changes)
+This template is built on top of excellent open-source projects and follows industry best practices for modern web development. Special thanks to the teams behind Next.js, React, TypeScript, Tailwind CSS, and all the other tools that make this template possible.
+
 **Happy coding! 🎉**
-=======
-This template is built on top of excellent open-source projects and follows industry best practices for modern web development. Special thanks to the teams behind Next.js, React, TypeScript, and all the other tools that make this template possible.
->>>>>>> Incoming (Background Agent changes)
