@@ -11,7 +11,7 @@
   "devDependencies": {
     "@repo/tooling": "workspace:*",
     "@turbo/gen": "^2.6.3",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "prettier": "^3.7.4",
     "turbo": "^2.6.3",
     "typescript": "^5.9.3"
