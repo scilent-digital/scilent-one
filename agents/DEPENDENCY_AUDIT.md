@@ -9,10 +9,11 @@ dependencies in the **scilent-one** monorepo.
 
 This is a **pnpm monorepo** with the following structure:
 
-```
+```bash
 ├── apps/
 │   └── web/          # Next.js web application
 ├── packages/
+│   ├── db/           # Prisma database client (@scilent-one/db)
 │   └── tooling/      # Shared ESLint, TypeScript, and Prettier configs
 ├── package.json      # Root workspace configuration
 ├── pnpm-workspace.yaml
@@ -25,6 +26,7 @@ This is a **pnpm monorepo** with the following structure:
 - **Build System:** Turborepo
 - **Framework:** Next.js (with Turbopack)
 - **UI:** React 19 + Tailwind CSS v4
+- **Database:** Prisma v7 with PostgreSQL
 - **Language:** TypeScript
 - **Linting:** ESLint 9 (flat config format)
 - **Formatting:** Prettier
@@ -38,10 +40,12 @@ Before starting the audit, understand:
 1. **Read all `package.json` files:**
    - `/package.json` (root)
    - `/apps/web/package.json`
+   - `/packages/db/package.json`
    - `/packages/tooling/package.json`
 
 2. **Understand the workspace relationships:**
-   - `@repo/tooling` is an internal workspace package used by `web`
+   - `@scilent-one/tooling` is an internal workspace package used by `web` and `db`
+   - `@scilent-one/db` is used by `web` for database access
 
 3. **Check current pnpm version:**
    - Defined in root `package.json` under `packageManager`
@@ -95,6 +99,8 @@ Before updating, categorize the outdated packages:
 | `typescript`          | Stricter type checking, new errors            |
 | `tailwindcss`         | v4 uses different config approach than v3     |
 | `eslint-plugin-*`     | Rule changes, new warnings                    |
+| `prisma`              | Schema changes, client API, adapter changes   |
+| `@prisma/client`      | Query API changes, type generation            |
 
 ### Step 4: Update Dependencies
 
@@ -196,6 +202,18 @@ When updating `@typescript-eslint/*` packages:
 
 - Both `@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin` should be same version
 - Check for deprecated rules
+
+### Prisma
+
+When updating `prisma` and `@prisma/client`:
+
+- Both packages should be the same version
+- Run `pnpm --filter @scilent-one/db db:generate` after updating
+- Check the [Prisma upgrade guide](https://www.prisma.io/docs/orm/more/upgrade-guides) for breaking changes
+- Prisma v7 uses `prisma-client` generator (not `prisma-client-js`)
+- The `@prisma/adapter-pg` package should match the Prisma version
+
+For database-specific agent instructions, see: `agents/DB.md`
 
 ---
 
