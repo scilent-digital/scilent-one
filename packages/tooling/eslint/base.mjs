@@ -44,7 +44,8 @@ const config = [
     languageOptions: {
       parser: tsparser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: true,
+        tsconfigRootDir: process.cwd(),
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
