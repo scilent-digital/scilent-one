@@ -34,15 +34,11 @@ export default function RootLayout({
         <ThemeProvider>
           <div className='min-h-dvh bg-background text-foreground'>
             <div className='container mx-auto px-4 py-4 flex items-center justify-between'>
-              <div className='font-semibold'>Scilent One</div>
+              <Link href='/' className='font-semibold'>
+                Scilent One
+              </Link>
               {/* Simple header with theme toggle */}
-              <div className='flex items-center gap-2'>
-                <Link
-                  href='/'
-                  className='text-sm text-muted-foreground hover:underline'
-                >
-                  Home
-                </Link>
+              <div className='flex items-center gap-4'>
                 <Link
                   href='/styles'
                   className='text-sm text-muted-foreground hover:underline'
