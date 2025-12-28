@@ -1,14 +1,15 @@
+const baseConfig = require('./base.mjs');
+
 /**
  * ESLint configuration for React projects
  * Flat config format for ESLint 9+
  *
- * TODO: [DEPENDENCY_AUDIT] This file was migrated from the legacy eslintrc format
- * to ESLint 9 flat config format. If you encounter issues, refer to:
- * https://eslint.org/docs/latest/use/configure/migration-guide
+ * Extends the base configuration with React-specific rules
  */
 
 /** @type {import("eslint").Linter.Config[]} */
 module.exports = [
+  ...baseConfig.default,
   {
     name: 'react/base',
     files: ['**/*.{js,jsx,mjs,cjs}'],

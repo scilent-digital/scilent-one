@@ -6,9 +6,7 @@ import importPlugin from 'eslint-plugin-import';
  * Base ESLint configuration for TypeScript projects (ES Module version)
  * Flat config format for ESLint 9+
  *
- * TODO: [DEPENDENCY_AUDIT] This file was migrated to ESLint 9 flat config format.
- * The import plugin may have compatibility issues with ESLint 9.
- * Consider using eslint-plugin-import-x as a more maintained alternative.
+ * Note: eslint-plugin-import v2.32.0+ has full support for ESLint 9 flat config.
  */
 
 /** @type {import("eslint").Linter.Config[]} */
@@ -85,6 +83,7 @@ const config = [
         },
       ],
       'import/no-duplicates': 'error',
+      'import/no-unresolved': 'error',
 
       // General rules
       'no-console': ['warn', { allow: ['warn', 'error'] }],
