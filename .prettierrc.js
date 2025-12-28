@@ -1,8 +1,8 @@
 /**
  * Root Prettier configuration for the monorepo
- * Uses the shared configuration from @repo/tooling
+ * Uses the shared configuration from @scilent-one/tooling
  */
 
-const config = require('@repo/tooling/prettier');
+const config = require('@scilent-one/tooling/prettier');
 
 module.exports = config;

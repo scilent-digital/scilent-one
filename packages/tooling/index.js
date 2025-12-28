@@ -1,5 +1,5 @@
 /**
- * @repo/tooling - Comprehensive tooling configurations
+ * @scilent-one/tooling - Comprehensive tooling configurations
  *
  * This package provides shared ESLint, TypeScript, and Prettier configurations
  * for consistent development across the monorepo.

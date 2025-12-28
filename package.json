@@ -6,10 +6,11 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "turbo format",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "fix": "turbo lint && turbo format && turbo typecheck"
   },
   "devDependencies": {
-    "@repo/tooling": "workspace:*",
+    "@scilent-one/tooling": "workspace:*",
     "@turbo/gen": "^2.7.2",
     "eslint": "^9.39.2",
     "prettier": "^3.7.4",

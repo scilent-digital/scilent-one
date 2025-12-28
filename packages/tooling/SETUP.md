@@ -1,4 +1,4 @@
-# Setup Guide for @repo/tooling
+# Setup Guide for @scilent-one/tooling
 
 This guide will walk you through setting up the tooling package for different types of projects. Follow the instructions that match your project type.
 
@@ -9,8 +9,9 @@ This guide will walk you through setting up the tooling package for different ty
 When creating a new project that will use the tooling package:
 
 1. **Install the tooling package**:
+
    ```bash
-   pnpm add -D @repo/tooling eslint prettier typescript
+   pnpm add -D @scilent-one/tooling eslint prettier typescript
    ```
 
 2. **Choose your project type** and follow the appropriate setup section below.
@@ -18,13 +19,14 @@ When creating a new project that will use the tooling package:
 3. **Install editor extensions** for ESLint and Prettier.
 
 4. **Run initial setup**:
+
    ```bash
    # Format all files
    pnpm format
-   
+
    # Check for linting issues
    pnpm lint:check
-   
+
    # Check types
    pnpm type-check
    ```
@@ -40,7 +42,7 @@ Perfect for full-stack React applications with SSR/SSG capabilities.
 Create `eslint.config.mjs`:
 
 ```javascript
-import nextConfig from '@repo/tooling/eslint/next';
+import nextConfig from '@scilent-one/tooling/eslint/next';
 
 export default [
   ...nextConfig,
@@ -59,7 +61,7 @@ Create `tsconfig.json`:
 
 ```json
 {
-  "extends": "@repo/tooling/typescript/nextjs",
+  "extends": "@scilent-one/tooling/typescript/nextjs",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
@@ -98,7 +100,7 @@ For client-side React applications without Next.js features.
 Create `eslint.config.mjs`:
 
 ```javascript
-import reactConfig from '@repo/tooling/eslint/react';
+import reactConfig from '@scilent-one/tooling/eslint/react';
 
 export default [
   ...reactConfig,
@@ -117,7 +119,7 @@ Create `tsconfig.json`:
 
 ```json
 {
-  "extends": "@repo/tooling/typescript/react",
+  "extends": "@scilent-one/tooling/typescript/react",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -136,7 +138,7 @@ For backend services, CLI tools, or npm packages.
 Create `eslint.config.mjs`:
 
 ```javascript
-import baseConfig from '@repo/tooling/eslint/base';
+import baseConfig from '@scilent-one/tooling/eslint/base';
 
 export default [
   ...baseConfig,
@@ -158,7 +160,7 @@ Create `tsconfig.json`:
 
 ```json
 {
-  "extends": "@repo/tooling/typescript/base",
+  "extends": "@scilent-one/tooling/typescript/base",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
@@ -179,7 +181,7 @@ Create `tsconfig.json`:
 Create `.prettierrc.js`:
 
 ```javascript
-const config = require('@repo/tooling/prettier');
+const config = require('@scilent-one/tooling/prettier');
 
 module.exports = {
   ...config,
@@ -283,25 +285,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'pnpm'
-      
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
+
       - name: Type check
         run: pnpm typecheck
-      
+
       - name: Lint check
         run: pnpm lint:check
-      
+
       - name: Format check
         run: pnpm format:check
-      
+
       - name: Build
         run: pnpm build
 ```
@@ -341,16 +343,16 @@ npx lint-staged
 
 ### Common Issues
 
-#### ESLint: "Cannot find module '@repo/tooling'"
+#### ESLint: "Cannot find module '@scilent-one/tooling'"
 
 **Solution**: Make sure the tooling package is installed and the workspace is properly configured.
 
 ```bash
 # Install the package
-pnpm add -D @repo/tooling
+pnpm add -D @scilent-one/tooling
 
 # Verify workspace setup
-pnpm list @repo/tooling
+pnpm list @scilent-one/tooling
 ```
 
 #### TypeScript: "Cannot find module" for path mappings
@@ -362,7 +364,7 @@ pnpm list @repo/tooling
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]  // Make sure ./src exists
+      "@/*": ["./src/*"] // Make sure ./src exists
     }
   }
 }
@@ -386,10 +388,10 @@ npx prettier --write src/app/page.tsx
 
 ```javascript
 // ✅ Correct - prettier is included in the configs
-import nextConfig from '@repo/tooling/eslint/next';
+import nextConfig from '@scilent-one/tooling/eslint/next';
 
 // ❌ Wrong - would need to add prettier manually
-import baseConfig from '@repo/tooling/eslint/base';
+import baseConfig from '@scilent-one/tooling/eslint/base';
 ```
 
 ### Getting More Help
@@ -401,29 +403,32 @@ import baseConfig from '@repo/tooling/eslint/base';
 
 ## 🔄 Migration from Other Configs
 
-### From `@repo/eslint-config`
+### From `@scilent-one/eslint-config`
 
-The old package has been superseded by `@repo/tooling`. Here's how to migrate:
+The old package has been superseded by `@scilent-one/tooling`. Here's how to migrate:
 
 1. **Remove old dependency**:
+
    ```bash
-   pnpm remove @repo/eslint-config
+   pnpm remove @scilent-one/eslint-config
    ```
 
 2. **Install new dependency**:
+
    ```bash
-   pnpm add -D @repo/tooling
+   pnpm add -D @scilent-one/tooling
    ```
 
 3. **Update ESLint config**:
+
    ```javascript
    // Old
    module.exports = {
-     extends: ['@repo/eslint-config/next.js'],
+     extends: ['@scilent-one/eslint-config/next.js'],
    };
-   
+
    // New
-   import nextConfig from '@repo/tooling/eslint/next';
+   import nextConfig from '@scilent-one/tooling/eslint/next';
    export default nextConfig;
    ```
 

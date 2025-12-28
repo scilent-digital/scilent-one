@@ -3,11 +3,11 @@ const require = createRequire(import.meta.url);
 
 /**
  * Root ESLint configuration for the monorepo
- * Uses the shared base configuration from @repo/tooling
+ * Uses the shared base configuration from @scilent-one/tooling
  */
 
 // Import the base configuration
-const baseConfigs = require('@repo/tooling/eslint/base');
+const baseConfigs = require('@scilent-one/tooling/eslint/base');
 
 const eslintConfig = [
   ...baseConfigs,

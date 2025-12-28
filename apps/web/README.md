@@ -64,7 +64,8 @@ pnpm lint       # ESLint
 - `src/app/globals.css`: Tailwind import, base CSS variables, tokens, and plugin registration.
 - `src/components/theme-provider.tsx`: Wrapper around `next-themes` with `attribute="class"`.
 - `src/components/theme-toggle.tsx`: Simple theme toggle button.
-- `src/components/ui/*`: shadcn/ui components (button, card, input, tabs, dialog, switch, badge, sonner toaster).
+- `src/components/ui/*`: shadcn/ui components (button, card, input, tabs, dialog, switch, badge,
+  sonner toaster).
 
 ### Demo routes
 

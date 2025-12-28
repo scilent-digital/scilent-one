@@ -1,7 +1,14 @@
 import type { NextConfig } from 'next';
+import createMDX from '@next/mdx';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Configure pageExtensions to include mdx
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Add MDX plugins here if needed
+  options: {},
+});
+
+export default withMDX(nextConfig);

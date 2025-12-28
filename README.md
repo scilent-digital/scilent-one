@@ -10,7 +10,7 @@ A modern, production-ready web application template built with the latest techno
 - **[Tailwind CSS 4.1.12](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[Turborepo 2.3.1](https://turbo.build/repo)** - Monorepo management
 - **[pnpm 10.15.0](https://pnpm.io/)** - Fast, disk space efficient package manager
-- **[@repo/tooling](./packages/tooling)** - Unified ESLint, TypeScript, and Prettier configurations
+- **[@scilent-one/tooling](./packages/tooling)** - Unified ESLint, TypeScript, and Prettier configurations
 
 ## 📁 Project Structure
 
@@ -26,9 +26,9 @@ scilent-one/
 │       │   └── components/      # Reusable components
 │       ├── public/              # Static assets
 │       ├── package.json
-│       ├── tsconfig.json        # Uses @repo/tooling/typescript/nextjs
-│       ├── eslint.config.mjs    # Uses @repo/tooling/eslint/next
-│       ├── .prettierrc.js       # Uses @repo/tooling/prettier
+│       ├── tsconfig.json        # Uses @scilent-one/tooling/typescript/nextjs
+│       ├── eslint.config.mjs    # Uses @scilent-one/tooling/eslint/next
+│       ├── .prettierrc.js       # Uses @scilent-one/tooling/prettier
 │       ├── next.config.ts
 │       └── tailwind.config.ts
 ├── packages/
@@ -65,17 +65,20 @@ scilent-one/
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone <repository-url> my-project
    cd my-project
    ```
 
 2. **Install dependencies**:
+
    ```bash
    pnpm install
    ```
 
 3. **Start the development server**:
+
    ```bash
    pnpm dev
    ```
@@ -95,7 +98,7 @@ scilent-one/
 
 ## 🧰 Tooling Package
 
-This template includes a comprehensive tooling package (`@repo/tooling`) that provides:
+This template includes a comprehensive tooling package (`@scilent-one/tooling`) that provides:
 
 ### Features
 
@@ -119,26 +122,29 @@ This template includes a comprehensive tooling package (`@repo/tooling`) that pr
 When adding a new package or app to the monorepo:
 
 1. **Install the tooling package**:
+
    ```bash
-   pnpm add -D @repo/tooling eslint prettier typescript
+   pnpm add -D @scilent-one/tooling eslint prettier typescript
    ```
 
 2. **For Next.js apps**, create `eslint.config.mjs`:
+
    ```javascript
-   import nextConfig from '@repo/tooling/eslint/next';
+   import nextConfig from '@scilent-one/tooling/eslint/next';
    export default nextConfig;
    ```
 
 3. **Create `tsconfig.json`**:
+
    ```json
    {
-     "extends": "@repo/tooling/typescript/nextjs"
+     "extends": "@scilent-one/tooling/typescript/nextjs"
    }
    ```
 
 4. **Create `.prettierrc.js`**:
    ```javascript
-   module.exports = require('@repo/tooling/prettier');
+   module.exports = require('@scilent-one/tooling/prettier');
    ```
 
 For detailed setup instructions, see [`packages/tooling/SETUP.md`](./packages/tooling/SETUP.md).
@@ -200,19 +206,22 @@ The repository includes `.vscode/settings.json` with optimized configuration.
 ### Creating a New App
 
 1. **Create the app directory**:
+
    ```bash
    mkdir apps/my-new-app
    cd apps/my-new-app
    ```
 
 2. **Initialize package.json**:
+
    ```bash
    pnpm init
    ```
 
 3. **Install dependencies** including the tooling package:
+
    ```bash
-   pnpm add -D @repo/tooling eslint prettier typescript
+   pnpm add -D @scilent-one/tooling eslint prettier typescript
    ```
 
 4. **Set up configurations** following the [setup guide](./packages/tooling/SETUP.md)
@@ -222,6 +231,7 @@ The repository includes `.vscode/settings.json` with optimized configuration.
 ### Creating a Shared Package
 
 1. **Create the package directory**:
+
    ```bash
    mkdir packages/my-package
    cd packages/my-package
@@ -244,6 +254,7 @@ The repository includes `.vscode/settings.json` with optimized configuration.
 ### Self-Hosted
 
 1. **Build the application**:
+
    ```bash
    pnpm build
    ```
@@ -295,4 +306,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Happy coding! 🎉**
 =======
 This template is built on top of excellent open-source projects and follows industry best practices for modern web development. Special thanks to the teams behind Next.js, React, TypeScript, and all the other tools that make this template possible.
->>>>>>> Incoming (Background Agent changes)
+
+> > > > > > > Incoming (Background Agent changes)
