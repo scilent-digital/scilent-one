@@ -1,4 +1,4 @@
-# @repo/tooling
+# @scilent-one/tooling
 
 A comprehensive tooling package that provides shared ESLint, TypeScript, and Prettier configurations for consistent development across the monorepo. This package is designed to be a template for other projects, providing battle-tested configurations that promote code quality, consistency, and developer experience.
 
@@ -16,7 +16,7 @@ A comprehensive tooling package that provides shared ESLint, TypeScript, and Pre
 In your app or package, install the tooling package:
 
 ```bash
-pnpm add -D @repo/tooling
+pnpm add -D @scilent-one/tooling
 ```
 
 ### ESLint Setup
@@ -28,7 +28,7 @@ Choose the appropriate ESLint configuration for your project:
 Create `eslint.config.mjs`:
 
 ```javascript
-import nextConfig from '@repo/tooling/eslint/next';
+import nextConfig from '@scilent-one/tooling/eslint/next';
 
 export default nextConfig;
 ```
@@ -38,7 +38,7 @@ export default nextConfig;
 Create `eslint.config.mjs`:
 
 ```javascript
-import reactConfig from '@repo/tooling/eslint/react';
+import reactConfig from '@scilent-one/tooling/eslint/react';
 
 export default reactConfig;
 ```
@@ -48,7 +48,7 @@ export default reactConfig;
 Create `eslint.config.mjs`:
 
 ```javascript
-import baseConfig from '@repo/tooling/eslint/base';
+import baseConfig from '@scilent-one/tooling/eslint/base';
 
 export default baseConfig;
 ```
@@ -61,18 +61,13 @@ Create `tsconfig.json` and extend the appropriate base configuration:
 
 ```json
 {
-  "extends": "@repo/tooling/typescript/nextjs",
+  "extends": "@scilent-one/tooling/typescript/nextjs",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }
 ```
 
@@ -80,7 +75,7 @@ Create `tsconfig.json` and extend the appropriate base configuration:
 
 ```json
 {
-  "extends": "@repo/tooling/typescript/react",
+  "extends": "@scilent-one/tooling/typescript/react",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -94,7 +89,7 @@ Create `tsconfig.json` and extend the appropriate base configuration:
 
 ```json
 {
-  "extends": "@repo/tooling/typescript/base",
+  "extends": "@scilent-one/tooling/typescript/base",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist"
@@ -107,7 +102,7 @@ Create `tsconfig.json` and extend the appropriate base configuration:
 Create `.prettierrc.js`:
 
 ```javascript
-const config = require('@repo/tooling/prettier');
+const config = require('@scilent-one/tooling/prettier');
 
 module.exports = config;
 ```
@@ -115,7 +110,7 @@ module.exports = config;
 Create `.prettierignore`:
 
 ```javascript
-const { ignorePatterns } = require('@repo/tooling/prettier');
+const { ignorePatterns } = require('@scilent-one/tooling/prettier');
 
 module.exports = ignorePatterns.join('\n');
 ```
@@ -223,7 +218,7 @@ You can extend any configuration with additional rules:
 
 ```javascript
 // eslint.config.mjs
-import nextConfig from '@repo/tooling/eslint/next';
+import nextConfig from '@scilent-one/tooling/eslint/next';
 
 export default [
   ...nextConfig,
@@ -239,7 +234,7 @@ export default [
 ```json
 // tsconfig.json
 {
-  "extends": "@repo/tooling/typescript/nextjs",
+  "extends": "@scilent-one/tooling/typescript/nextjs",
   "compilerOptions": {
     // Your custom options
     "strict": false
@@ -253,12 +248,12 @@ For project-specific requirements, you can override any rule:
 
 ```javascript
 // .prettierrc.js
-const config = require('@repo/tooling/prettier');
+const config = require('@scilent-one/tooling/prettier');
 
 module.exports = {
   ...config,
   printWidth: 120, // Override default
-  semi: false,     // Override default
+  semi: false, // Override default
 };
 ```
 
@@ -266,16 +261,18 @@ module.exports = {
 
 ### From Existing ESLint Config
 
-If you're migrating from the old `@repo/eslint-config`:
+If you're migrating from the old `@scilent-one/eslint-config`:
 
 1. Remove the old dependency:
+
    ```bash
-   pnpm remove @repo/eslint-config
+   pnpm remove @scilent-one/eslint-config
    ```
 
 2. Install the new tooling package:
+
    ```bash
-   pnpm add -D @repo/tooling
+   pnpm add -D @scilent-one/tooling
    ```
 
 3. Update your ESLint configuration file as shown in the setup guide above.

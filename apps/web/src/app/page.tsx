@@ -12,7 +12,7 @@ export default function Home() {
           <div className='inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg font-mono'>
             <span className='text-green-500 mr-2'>✓</span>
             <span className='text-gray-700 dark:text-gray-300'>
-              Next.js + React + TypeScript + Tailwind CSS + Turborepo
+              Next.js + React + TypeScript + Tailwind CSS + Turborepo + Prisma
             </span>
           </div>
         </div>

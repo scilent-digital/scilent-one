@@ -3,11 +3,11 @@ const require = createRequire(import.meta.url);
 
 /**
  * ESLint configuration for the web app
- * Uses the shared Next.js configuration from @repo/tooling
+ * Uses the shared Next.js configuration from @scilent-one/tooling
  */
 
 // Import the Next.js configuration
-const nextConfigs = require('@repo/tooling/eslint/next');
+const nextConfigs = require('@scilent-one/tooling/eslint/next');
 
 const eslintConfig = [
   ...nextConfigs,

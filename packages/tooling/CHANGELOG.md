@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the `@repo/tooling` package will be documented in this file.
+All notable changes to the `@scilent-one/tooling` package will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Documentation**:
   - Complete README with usage examples
   - Setup guide for different project types
-  - Migration guide from `@repo/eslint-config`
+  - Migration guide from `@scilent-one/eslint-config`
   - Troubleshooting guide
 - **Export system**:
   - Individual exports for tree-shaking
@@ -34,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Migration Notes
 
-This package replaces the previous `@repo/eslint-config` package with a more comprehensive tooling solution:
+This package replaces the previous `@scilent-one/eslint-config` package with a more comprehensive tooling solution:
 
 - **Breaking Change**: ESLint configurations now use the flat config format
 - **New**: TypeScript and Prettier configurations are now included

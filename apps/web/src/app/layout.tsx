@@ -51,6 +51,12 @@ export default function RootLayout({
                 >
                   Components
                 </Link>
+                <Link
+                  href='/db'
+                  className='text-sm text-muted-foreground hover:underline'
+                >
+                  Database
+                </Link>
                 <ThemeToggle />
               </div>
             </div>

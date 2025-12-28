@@ -45,7 +45,21 @@ Welcome to the Scilent One template! This guide will help you get started after 
    pnpm dev
    ```
 
-5. **Verify everything works**:
+5. **Set up database** (optional, if using `@scilent-one/db`):
+
+   ```bash
+   # Copy the environment template
+   cp packages/db/.env.example packages/db/.env
+
+   # Edit packages/db/.env with your PostgreSQL connection string
+   # Then generate the Prisma client and push schema
+   pnpm --filter @scilent-one/db db:generate
+   pnpm --filter @scilent-one/db db:push
+   ```
+
+   See [DATABASE.md](./DATABASE.md) for detailed database setup instructions.
+
+6. **Verify everything works**:
 
    ```bash
    # Run all quality checks
@@ -67,7 +81,7 @@ Welcome to the Scilent One template! This guide will help you get started after 
    - `README.md`: Update the title and repository references
 
 2. **Customize tooling configurations**:
-   - The `@repo/tooling` package contains all ESLint, TypeScript, and Prettier configurations
+   - The `@scilent-one/tooling` package contains all ESLint, TypeScript, and Prettier configurations
    - Configurations are designed to be minimal and reusable
    - You can extend them in individual apps/packages as needed
 
@@ -115,9 +129,11 @@ For the best development experience:
 
 2. **The template includes** `.vscode/` configuration for optimal development experience
 
-## 📦 Understanding the Tooling Package
+## 📦 Understanding the Packages
 
-The `@repo/tooling` package is the heart of code quality in this template:
+### `@scilent-one/tooling`
+
+The tooling package is the heart of code quality in this template:
 
 ### What's Included
 
@@ -146,7 +162,7 @@ Example of extending ESLint config in an app:
 
 ```javascript
 // apps/my-app/eslint.config.mjs
-import nextConfig from '@repo/tooling/eslint/next';
+import nextConfig from '@scilent-one/tooling/eslint/next';
 
 export default [
   ...nextConfig,
@@ -156,6 +172,26 @@ export default [
     },
   },
 ];
+```
+
+### `@scilent-one/db`
+
+The database package provides a pre-configured Prisma ORM setup:
+
+- **Prisma v7** with the new `prisma-client` generator
+- **PostgreSQL** adapter (`@prisma/adapter-pg`) for optimal performance
+- **Singleton pattern** to prevent connection pool exhaustion in development
+- **Auth-ready schema** with User, Account, Session, and VerificationToken models
+
+For detailed setup and usage, see [DATABASE.md](./DATABASE.md).
+
+Quick usage example:
+
+```typescript
+import { db } from '@scilent-one/db';
+
+// In Next.js server components or API routes
+const users = await db.user.findMany();
 ```
 
 ## 🚀 Deployment
@@ -232,6 +268,8 @@ jobs:
 - **[Main README](../README.md)**: Overview of the entire template
 - **[Tooling Guide](../packages/tooling/README.md)**: Detailed tooling documentation
 - **[Setup Guide](../packages/tooling/SETUP.md)**: Step-by-step configuration instructions
+- **[Database Guide](./DATABASE.md)**: Prisma setup and usage instructions
+- **[Database Package README](../packages/db/README.md)**: Quick reference for `@scilent-one/db`
 
 ## ❓ Common Questions
 
@@ -275,6 +313,7 @@ You now have a fully configured, production-ready development environment with:
 - ✅ Monorepo management (Turborepo, pnpm)
 - ✅ Development server with hot reload
 - ✅ Build optimization and caching
+- ✅ Database layer (Prisma ORM with PostgreSQL)
 - ✅ Comprehensive documentation
 
 Start building your amazing project! 🚀
