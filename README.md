@@ -14,7 +14,7 @@ A modern, production-ready web application template built with the latest techno
 
 ## 📁 Project Structure
 
-```
+```bash
 scilent-one/
 ├── apps/
 │   └── web/                     # Next.js application
@@ -143,9 +143,10 @@ When adding a new package or app to the monorepo:
    ```
 
 4. **Create `.prettierrc.js`**:
-   ```javascript
-   module.exports = require('@scilent-one/tooling/prettier');
-   ```
+
+```javascript
+module.exports = require('@scilent-one/tooling/prettier');
+```
 
 For detailed setup instructions, see [`packages/tooling/SETUP.md`](./packages/tooling/SETUP.md).
 
@@ -260,6 +261,7 @@ The repository includes `.vscode/settings.json` with optimized configuration.
    ```
 
 2. **Start the production server**:
+
    ```bash
    cd apps/web
    pnpm start
@@ -279,12 +281,14 @@ The repository includes `.vscode/settings.json` with optimized configuration.
 1. **Create a feature branch** from `main`
 2. **Make your changes** following the coding standards
 3. **Run quality checks**:
+
    ```bash
    pnpm lint:check
    pnpm format:check
    pnpm typecheck
    pnpm build
    ```
+
 4. **Submit a pull request** with a clear description
 
 ## 📚 Resources
@@ -299,12 +303,3 @@ The repository includes `.vscode/settings.json` with optimized configuration.
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-<<<<<<< Current (Your changes)
-**Happy coding! 🎉**
-=======
-This template is built on top of excellent open-source projects and follows industry best practices for modern web development. Special thanks to the teams behind Next.js, React, TypeScript, and all the other tools that make this template possible.
-
-> > > > > > > Incoming (Background Agent changes)

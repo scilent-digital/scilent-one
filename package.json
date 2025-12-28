@@ -7,7 +7,9 @@
     "lint": "turbo lint",
     "format": "turbo format",
     "typecheck": "turbo typecheck",
-    "fix": "turbo lint && turbo format && turbo typecheck"
+    "fix": "turbo lint && turbo format && turbo typecheck",
+    "clean:full": "turbo clean && rm -rf node_modules apps/*/node_modules packages/*/node_modules .turbo apps/*/.turbo packages/*/.turbo",
+    "reinstall": "pnpm clean:full && pnpm install"
   },
   "devDependencies": {
     "@scilent-one/tooling": "workspace:*",

@@ -9,7 +9,9 @@
     "lint": "eslint . --fix",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "fix": "eslint . --fix && prettier --write ."
+    "fix": "eslint . --fix && prettier --write .",
+    "clean": "rm -rf .next .turbo",
+    "clean:full": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
     "@scilent-one/db": "workspace:*",
