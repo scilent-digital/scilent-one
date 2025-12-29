@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+### Patch Changes
+
+- 77241d6: # Changes - 12-29-2025
+
+  ALL: Init and configured changesets for versioning. DB: Removed postinstall script.
+
 All notable changes to the `@scilent-one/tooling` package will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

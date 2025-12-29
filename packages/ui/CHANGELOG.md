@@ -1,0 +1,9 @@
+# @scilent-one/ui
+
+## 0.1.1
+
+### Patch Changes
+
+- 77241d6: # Changes - 12-29-2025
+
+  ALL: Init and configured changesets for versioning. DB: Removed postinstall script.
