@@ -7,6 +7,7 @@
 */
 
 :root {
+  --font-doto: 'Doto', var(--font-sans), system-ui, sans-serif;
   /* Base colors */
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
@@ -72,8 +73,11 @@
 
 @theme inline {
   /* Map CSS variables to Tailwind tokens */
-  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-doto);
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-source-sans);
   --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-source-sans);
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -107,8 +111,67 @@ body {
 
 body {
   background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  font-family: var(--font-sans);
+  @apply font-body text-base text-foreground antialiased;
+}
+
+/* Typography hierarchy */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading font-semibold tracking-tight;
+}
+
+h1 {
+  @apply text-5xl md:text-6xl font-bold;
+}
+
+h2 {
+  @apply text-4xl md:text-5xl font-bold;
+}
+
+h3 {
+  @apply text-3xl md:text-4xl;
+}
+
+h4 {
+  @apply text-2xl md:text-3xl;
+}
+
+h5 {
+  @apply text-xl md:text-2xl;
+}
+
+h6 {
+  @apply text-lg md:text-xl;
+}
+
+p {
+  @apply text-base leading-relaxed;
+}
+
+/* Links */
+/* a {
+    @apply text-blue-600 hover:text-blue-700 transition-colors;
+  } */
+
+/* Strong emphasis */
+strong,
+b {
+  @apply font-semibold;
+}
+
+/* Lists */
+ul,
+ol {
+  @apply space-y-2;
+}
+
+/* Code */
+code {
+  @apply font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded;
 }
 
 /* Animated utilities */

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+
 import { ThemeProvider } from '@/components/theme-provider';
 import { ThemeToggle } from '@/components/theme-toggle';
 import Link from 'next/link';
@@ -11,16 +10,9 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@scilent-one/ui';
+import { doto, spaceGrotesk, sourceSans } from '@/lib/fonts';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Scilent One - Digital Project Template',
@@ -36,14 +28,14 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${spaceGrotesk.variable} ${sourceSans.variable} ${doto.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider>
           {/* Fixed navbar that overlays content */}
           <header className='flex items-center justify-between h-14 px-4 mx-auto fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60'>
             <Link
               href='/'
-              className='font-semibold tracking-tight hover:opacity-80 transition-opacity'
+              className='text-2xl font-display font-black tracking-wide hover:font-semibold transition-all duration-200'
             >
               Scilent One
             </Link>
