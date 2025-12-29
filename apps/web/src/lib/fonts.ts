@@ -1,4 +1,9 @@
-import { Doto, Space_Grotesk, Source_Sans_3 } from 'next/font/google';
+import {
+  Doto,
+  Space_Grotesk,
+  Source_Sans_3,
+  Space_Mono,
+} from 'next/font/google';
 
 export const doto = Doto({
   subsets: ['latin'],
@@ -18,5 +23,12 @@ export const sourceSans = Source_Sans_3({
   subsets: ['latin'],
   weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-source-sans',
+  display: 'swap',
+});
+
+export const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
   display: 'swap',
 });

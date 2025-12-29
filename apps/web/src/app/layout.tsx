@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@scilent-one/ui';
-import { doto, spaceGrotesk, sourceSans } from '@/lib/fonts';
+import { doto, spaceGrotesk, sourceSans, spaceMono } from '@/lib/fonts';
 
 import './globals.css';
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${sourceSans.variable} ${doto.variable} antialiased bg-background text-foreground`}
+        className={`${spaceGrotesk.variable} ${sourceSans.variable} ${doto.variable} ${spaceMono.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider>
           {/* Fixed navbar that overlays content */}

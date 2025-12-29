@@ -76,7 +76,7 @@
   --font-display: var(--font-doto);
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-source-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-space-mono);
   --font-sans: var(--font-source-sans);
 
   --color-background: hsl(var(--background));

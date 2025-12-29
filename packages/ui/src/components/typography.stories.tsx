@@ -8,7 +8,7 @@ function TypographyDemo() {
           <p className="text-sm text-muted-foreground font-mono">
             Foundations / Typography
           </p>
-          <h1 className="font-display">Type scale & fonts</h1>
+          <h3>Type scale & fonts</h3>
           <p className="text-muted-foreground">
             This story renders semantic elements styled by
             <code>src/globals.css</code>, plus font utilities that map to your
@@ -17,9 +17,21 @@ function TypographyDemo() {
         </div>
 
         <div className="mt-10 space-y-12">
+          <section>
+            <div className="flex items-baseline justify-between gap-6 border-b border-border pb-3">
+              <h4>Display/Hero</h4>
+              <p className="text-sm text-muted-foreground font-mono">
+                font-display
+              </p>
+            </div>
+
+            <span className="font-display text-6xl font-bold">
+              Quick Brown Fox
+            </span>
+          </section>
           <section className="space-y-6">
             <div className="flex items-baseline justify-between gap-6 border-b border-border pb-3">
-              <h2>Headings</h2>
+              <h4>Headings</h4>
               <p className="text-sm text-muted-foreground font-mono">
                 h1–h6 (global styles)
               </p>
@@ -55,7 +67,7 @@ function TypographyDemo() {
 
           <section className="space-y-6">
             <div className="flex items-baseline justify-between gap-6 border-b border-border pb-3">
-              <h2>Body, lists, and code</h2>
+              <h4>Body, lists, and code</h4>
               <p className="text-sm text-muted-foreground font-mono">
                 p / strong / ul / ol / code (global styles)
               </p>
@@ -103,7 +115,7 @@ function TypographyDemo() {
 
           <section className="space-y-6">
             <div className="flex items-baseline justify-between gap-6 border-b border-border pb-3">
-              <h2>Font utilities</h2>
+              <h4>Font utilities</h4>
               <p className="text-sm text-muted-foreground font-mono">
                 font-display / font-heading / font-body / font-mono
               </p>

@@ -12,7 +12,7 @@
   /* Default font variable fallbacks (Next.js apps may override via next/font variables) */
   --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
   --font-source-sans: 'Source Sans 3', system-ui, sans-serif;
-  --font-geist-mono:
+  --font-space-mono:
     'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
   /* Base colors */
@@ -84,7 +84,7 @@
   --font-display: var(--font-doto);
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-source-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-space-mono);
   --font-sans: var(--font-source-sans);
 
   --color-background: hsl(var(--background));
