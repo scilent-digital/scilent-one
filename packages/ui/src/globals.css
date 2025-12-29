@@ -171,15 +171,9 @@ b {
   @apply font-semibold;
 }
 
-/* Lists */
-ul,
-ol {
-  @apply space-y-2;
-}
-
 /* Code */
 code {
-  @apply font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded;
+  @apply font-mono text-sm bg-muted px-1.5 py-0.5 rounded;
 }
 
 /* Animated utilities */

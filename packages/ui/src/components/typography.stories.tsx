@@ -90,7 +90,7 @@ function TypographyDemo() {
                   <p className="text-sm text-muted-foreground font-mono">
                     Unordered list
                   </p>
-                  <ul className="list-disc pl-6">
+                  <ul className="list-disc pl-6 space-y-2">
                     <li>Readable line height</li>
                     <li>Consistent spacing</li>
                     <li>
@@ -103,7 +103,7 @@ function TypographyDemo() {
                   <p className="text-sm text-muted-foreground font-mono">
                     Ordered list
                   </p>
-                  <ol className="list-decimal pl-6">
+                  <ol className="list-decimal pl-6 space-y-2">
                     <li>One</li>
                     <li>Two</li>
                     <li>Three</li>
