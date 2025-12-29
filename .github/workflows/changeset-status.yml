@@ -32,8 +32,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Validate changesets
-        uses: changesets/action@v1
-        with:
-          status: true
+        run: pnpm changeset status --since=origin/main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
