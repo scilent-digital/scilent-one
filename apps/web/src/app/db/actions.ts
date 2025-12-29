@@ -104,7 +104,7 @@ export async function getDbTables(): Promise<DbTable[]> {
     { name: 'users', displayName: 'User' },
     { name: 'accounts', displayName: 'Account' },
     { name: 'sessions', displayName: 'Session' },
-    { name: 'verification_tokens', displayName: 'VerificationToken' },
+    { name: 'verifications', displayName: 'Verification' },
   ];
 }
 
@@ -118,21 +118,21 @@ export async function getTableCounts(): Promise<Record<string, number | null>> {
         db.user.count(),
         db.account.count(),
         db.session.count(),
-        db.verificationToken.count(),
+        db.verification.count(),
       ]);
 
     return {
       users: userCount,
       accounts: accountCount,
       sessions: sessionCount,
-      verification_tokens: tokenCount,
+      verifications: tokenCount,
     };
   } catch {
     return {
       users: null,
       accounts: null,
       sessions: null,
-      verification_tokens: null,
+      verifications: null,
     };
   }
 }

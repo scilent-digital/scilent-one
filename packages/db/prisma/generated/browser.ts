@@ -19,21 +19,21 @@ export * as $Enums from './enums'
 export * from './enums';
 /**
  * Model User
- * 
+ * User model - Core user information
  */
 export type User = Prisma.UserModel
 /**
  * Model Account
- * 
+ * Account model - Stores OAuth and credential account information
  */
 export type Account = Prisma.AccountModel
 /**
  * Model Session
- * 
+ * Session model - Active user sessions
  */
 export type Session = Prisma.SessionModel
 /**
- * Model VerificationToken
- * 
+ * Model Verification
+ * Verification model - Email verification, password reset tokens, etc.
  */
-export type VerificationToken = Prisma.VerificationTokenModel
+export type Verification = Prisma.VerificationModel
