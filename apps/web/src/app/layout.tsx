@@ -10,7 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
+} from '@scilent-one/ui';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,55 +36,55 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider>
-          <div className='min-h-dvh bg-background text-foreground'>
-            {/* Sticky navbar with transparent blur effect */}
-            <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60'>
-              <div className='container mx-auto px-4 flex h-14 items-center justify-between'>
-                <Link
-                  href='/'
-                  className='font-semibold tracking-tight hover:opacity-80 transition-opacity'
-                >
-                  Scilent One
-                </Link>
+          {/* Sticky navbar with transparent blur effect */}
+          <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60'>
+            <div className='container mx-auto px-4 flex h-14 items-center justify-between'>
+              <Link
+                href='/'
+                className='font-semibold tracking-tight hover:opacity-80 transition-opacity'
+              >
+                Scilent One
+              </Link>
 
-                <div className='flex items-center gap-2'>
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuLink
-                          className={navigationMenuTriggerStyle()}
-                          asChild
-                        >
-                          <Link href='/styles'>Styles</Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                      <NavigationMenuItem>
-                        <NavigationMenuLink
-                          className={navigationMenuTriggerStyle()}
-                          asChild
-                        >
-                          <Link href='/components'>Components</Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                      <NavigationMenuItem>
-                        <NavigationMenuLink
-                          className={navigationMenuTriggerStyle()}
-                          asChild
-                        >
-                          <Link href='/db'>Database</Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                  <ThemeToggle />
-                </div>
+              <div className='flex items-center gap-2'>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                        asChild
+                      >
+                        <Link href='/styles'>Styles</Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                        asChild
+                      >
+                        <Link href='/components'>Components</Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                        asChild
+                      >
+                        <Link href='/db'>Database</Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+                <ThemeToggle />
               </div>
-            </header>
-            <main className='container mx-auto px-4 py-8'>{children}</main>
-          </div>
+            </div>
+          </header>
+          <main className='container mx-auto min-h-screen w-full overflow-y-auto'>
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

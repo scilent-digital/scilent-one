@@ -6,9 +6,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+  Badge,
+  Button,
+  cn,
+} from '@scilent-one/ui';
 import {
   getDbStatus,
   getDbMetadata,
@@ -42,7 +43,10 @@ function StatusBadge({
   const variant = variants[status];
 
   return (
-    <Badge variant='outline' className={variant.className}>
+    <Badge
+      variant='outline'
+      className={cn(variant.className, 'rounded-full px-2 py-1')}
+    >
       {variant.label}
     </Badge>
   );
@@ -53,21 +57,21 @@ async function DbStatusCard() {
 
   return (
     <Card>
-      <CardHeader>
-        <div className='flex items-center justify-between'>
+      <CardHeader className='flex justify-between'>
+        <div className='flex items-center gap-2 md:justify-between'>
           <CardTitle>Connection Status</CardTitle>
           <StatusBadge status={status.status} />
         </div>
-        <CardDescription>{status.message}</CardDescription>
       </CardHeader>
-      {status.latencyMs !== undefined && (
-        <CardContent>
+      <CardContent>
+        <CardDescription>{status.message}</CardDescription>
+        {status.latencyMs !== undefined && (
           <div className='flex items-center gap-2 text-sm text-muted-foreground'>
             <span>Latency:</span>
             <span className='font-mono'>{status.latencyMs}ms</span>
           </div>
-        </CardContent>
-      )}
+        )}
+      </CardContent>
     </Card>
   );
 }
@@ -127,7 +131,10 @@ async function DbTablesCard() {
                 </span>
               </div>
               {counts[table.name] !== null && (
-                <Badge variant='secondary' className='font-mono'>
+                <Badge
+                  variant='secondary'
+                  className='font-mono rounded-full px-2 py-1'
+                >
                   {counts[table.name]} rows
                 </Badge>
               )}

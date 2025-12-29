@@ -1,15 +1,18 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Toaster } from '@/components/ui/sonner';
+  Toaster,
+} from '@scilent-one/ui';
 import { toast } from 'sonner';
 
 export default function ComponentsPage() {
