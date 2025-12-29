@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@scilent-one/db": "workspace:*",
-    "better-auth": "^1.2.7"
+    "better-auth": "^1.2.12"
   },
   "devDependencies": {
     "@scilent-one/tooling": "workspace:*",
