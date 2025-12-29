@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:ui": "pnpm turbo storybook --filter=@scilent-one/ui",
     "lint": "turbo lint",
     "format": "turbo format",
     "typecheck": "turbo typecheck",
