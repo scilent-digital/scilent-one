@@ -26,11 +26,11 @@
   },
   "dependencies": {
     "@scilent-one/db": "workspace:*",
-    "better-auth": "^1.4.9"
+    "better-auth": "^1.4.18"
   },
   "devDependencies": {
     "@scilent-one/tooling": "workspace:*",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.0.10",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
