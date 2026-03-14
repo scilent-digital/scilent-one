@@ -23,7 +23,7 @@
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.3",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   },
