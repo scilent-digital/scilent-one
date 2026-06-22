@@ -20,7 +20,7 @@
     "@scilent-one/tooling": "workspace:*",
     "@turbo/gen": "^2.9.14",
     "eslint": "^9.39.4",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "turbo": "^2.9.14",
     "typescript": "^5.9.3"
   },
