@@ -27,9 +27,9 @@
   },
   "devDependencies": {
     "@scilent-one/tooling": "workspace:*",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.0.10",
     "prisma": "^7.2.0",
-    "tsx": "^4.21.0",
+    "tsx": "^4.21.1",
     "typescript": "^5.9.3"
   }
 }
